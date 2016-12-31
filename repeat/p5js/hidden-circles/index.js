@@ -1,4 +1,6 @@
 var dis = 20;
+var n = 80;
+var r = 100;
 
 function setup() {
   createCanvas(500, 500);
@@ -7,63 +9,33 @@ function setup() {
 
 function drawLines(count, distance) {
   distance = distance || 20;
-  
+
   for (var i = 0; i < count; i++) {
      var x = i * distance;
-    
+
     line(x, 0, x, 500);
   }
 }
 
 function draw() {
+    noLoop();
   stroke(0);
   strokeWeight(2);
-  drawLines(100, dis);
-  
-  strokeWeight(10);
-  stroke(255, 255, 255);
-  noFill();
-  ellipse(250, 250, 100);
-  
+  drawLines(200, dis);
+
+ for(var j = n; j < 500; j++) {
+    r = (r + j)*0.9;
+
   fill(255);
   ellipse(250, 250, 35);
-  
-  strokeWeight(10);
-  stroke(255, 255, 255);
+
+  strokeWeight(12);
+  stroke(255);
   noFill();
-  ellipse(250, 250, 150);
-  
-  strokeWeight(10);
-  stroke(255, 255, 255);
-  noFill();
-  ellipse(250, 250, 240);
-  
-  strokeWeight(10);
-  stroke(255, 255, 255);
-  noFill();
-  ellipse(250, 250, 300);
-  
-  strokeWeight(10);
-  stroke(255, 255, 255);
-  noFill();
-  ellipse(250, 250, 340);
-  
-  strokeWeight(10);
-  stroke(255, 255, 255);
-  noFill();
-  ellipse(250, 250, 400);
-  
-  strokeWeight(10);
-  stroke(255, 255, 255);
-  noFill();
-  ellipse(250, 250, 440);
-  
-  strokeWeight(10);
-  stroke(255, 255, 255);
-  noFill();
-  ellipse(250, 250, 500);
+  ellipse(250, 250, r);
+ }
 }
- 
+
  function mouseClicked(){
-  save('Law of Connected Elements - Lines.png');
-}
+  save('Law of Closure/Connected Elements - circles.png');
+ }
